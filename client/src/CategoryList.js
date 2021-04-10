@@ -1,20 +1,31 @@
-import React, { Component } from 'react';
-import {ListGroup, ListGroupItem} from "reactstrap";
+import React, { Component } from "react";
+import { ListGroup, ListGroupItem } from "reactstrap";
 
 export default class CategoryList extends Component {
-    render() {
-        return (
-            <div>
-                <h3> CategoryList </h3>
+  state = {
+    categories: [
+      { categoryId: 1, categoryName: "Beverages" },
+      { categoryId: 2, categoryName: "Condiments" },
+    ]
+  };
 
-                <ListGroup>
-        <ListGroupItem active tag="a" href="#" action>Cras justo odio</ListGroupItem>
-        <ListGroupItem tag="a" href="#" action>Dapibus ac facilisis in</ListGroupItem>
-        <ListGroupItem tag="a" href="#" action>Morbi leo risus</ListGroupItem>
-        <ListGroupItem tag="a" href="#" action>Porta ac consectetur ac</ListGroupItem>
-        <ListGroupItem disabled tag="a" href="#" action>Vestibulum at eros</ListGroupItem>
-      </ListGroup>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <h3> {this.props.info.title} </h3>
+
+        <ListGroup>
+          {this.state.categories.map((category) => (
+            <ListGroupItem
+              onClick={() => this.props.changeCategory(category)}
+              key={category.categoryId}
+            >
+              {category.categoryName}
+            </ListGroupItem>
+          ))}
+        </ListGroup>
+        <h4> {this.props.currentCategory}</h4>
+      </div>
+    );
+  }
 }
