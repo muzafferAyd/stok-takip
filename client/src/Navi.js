@@ -37,7 +37,7 @@ export default class Navi extends React.Component {
               <NavLink href="/components/">Stock-App</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <NavLink href="https://github.com/muzafferAyd">Github</NavLink>
             </NavItem>
 
             <CardSummary  removeFromCart={this.props.removeFromCart}   cart={this.props.cart}/>
